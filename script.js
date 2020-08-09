@@ -17,7 +17,7 @@ async function demo() {
   document.getElementById("winner").innerHTML =
     "<span style='font-size: 0.7em'>Let me thonk 🤔</span>";
 
-  let array = ["sam", "amogh", "chris", "vera"];
+  let array = ["sam", "amogh", "chris", "vera", "sarthak"];
 
   await sleep(2000);
 
