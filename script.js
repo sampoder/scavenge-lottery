@@ -5,18 +5,6 @@ function sleep(ms) {
 var b = 'stop';
 
 async function demo(array) {
-
-  var getTime = new XMLHttpRequest();
-
-  getTime.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      $('#date').text(this.responseText+' in the Innovation Suite');
-    }
-  };
-    
-  getTime.open("GET", "https://gwas-hackclub-api--sampoder.repl.co/time", true);
-
-  getTime.send();
   
   b = 'stop';
   
@@ -71,11 +59,11 @@ function lottery() {
 
   getPeople.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      demo(this.response)
+      demo(JSON.parse(this.response))
     }
   };
     
-  getPeople.open("GET", "https://ashamednavyexperiments.sampoder.repl.co", true);
+  getPeople.open("GET", "https://cors-anywhere.herokuapp.com/https://ashamednavyexperiments.sampoder.repl.co", true);
 
   getPeople.send();
 }
