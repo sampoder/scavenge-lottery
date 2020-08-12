@@ -15,7 +15,7 @@ async function demo() {
   document.getElementById("redo").hidden = true;
 
   document.getElementById("winner").innerHTML =
-    "<span style='font-size: 0.7em'>Let me thonk 🤔</span>";
+    "<span style='font-size: 0.7em'>Let me think 🤔</span>";
 
   let array = ["sam", "amogh", "chris", "vera", "sarthak"];
 
