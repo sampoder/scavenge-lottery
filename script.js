@@ -4,7 +4,19 @@ function sleep(ms) {
 
 var b = 'stop';
 
-async function demo() {
+async function demo(array) {
+
+  var getTime = new XMLHttpRequest();
+
+  getTime.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      $('#date').text(this.responseText+' in the Innovation Suite');
+    }
+  };
+    
+  getTime.open("GET", "https://gwas-hackclub-api--sampoder.repl.co/time", true);
+
+  getTime.send();
   
   b = 'stop';
   
@@ -16,8 +28,6 @@ async function demo() {
 
   document.getElementById("winner").innerHTML =
     "<span style='font-size: 0.7em'>Let me think 🤔</span>";
-
-  let array = ["sam", "amogh", "chris", "vera", "sarthak"];
 
   await sleep(2000);
 
@@ -55,6 +65,20 @@ async function demo() {
   checkFlag();
 }
 
+function lottery() {
+
+  var getPeople = new XMLHttpRequest();
+
+  getPeople.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      demo(this.response)
+    }
+  };
+    
+  getPeople.open("GET", "https://ashamednavyexperiments.sampoder.repl.co", true);
+
+  getPeople.send();
+}
 
 function confettiOverload() {
   var duration = 15 * 500;
