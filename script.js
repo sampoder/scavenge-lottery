@@ -62,6 +62,9 @@ const times = x => f => {
 
 function lottery() {
 
+  document.getElementById("winner").innerHTML =
+    "<span style='font-size: 0.7em'>Let me think 🤔</span>";
+
   var getPeople = new XMLHttpRequest();
 
   getPeople.onreadystatechange = function() {
