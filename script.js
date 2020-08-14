@@ -53,17 +53,27 @@ async function demo(array) {
   checkFlag();
 }
 
+const times = x => f => {
+  if (x > 0) {
+    f()
+    times (x - 1) (f)
+  }
+}
+
 function lottery() {
 
   var getPeople = new XMLHttpRequest();
 
   getPeople.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      demo(JSON.parse(this.response))
+      let data = JSON.parse(this.response)
+      let people = []
+      data.forEach(function (value) {times(value['fields']['Score']) (() => people.push(value['fields']['Name']))});
+      demo(people)
     }
   };
     
-  getPeople.open("GET", "https://cors-anywhere.herokuapp.com/https://ashamednavyexperiments.sampoder.repl.co", true);
+  getPeople.open("GET", "https://api2.hackclub.com/v0.1/SOM%20Hardware%20Party/Players", true);
 
   getPeople.send();
 }
